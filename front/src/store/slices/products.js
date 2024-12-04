@@ -7,7 +7,16 @@ export const productsApi = createApi({
     getProducts: build.query({
       query: () => ({ url: "/products" }),
     }),
+    getProduct: build.query({
+      query: (id) => ({ url: `/products/${id}` }),
+    }),
+    getCategories: build.query({
+      query: () => ({ url: `/categories` }),
+    }),
+    getProductsByCategory: build.query({
+      query: (id) => ({ url:`/category/${id}/products`}),
+    }),
   }),
 });
 export const productReducer = productsApi.reducer;
-export const { useGetProductsQuery } = productsApi;
+export const { useGetProductsQuery,useGetProductQuery,useGetCategoriesQuery,getProductsByCategoryQuery } = productsApi;
