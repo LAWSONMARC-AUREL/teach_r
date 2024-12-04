@@ -1,8 +1,8 @@
 import React from "react";
-import { useGetProductsQuery } from "../store/slices/products.js";
-import ProductRow from "./ProductRow";
-import Loading from "./Loading.jsx";
-import Error from "./Loading.jsx";
+import { useGetProductsQuery } from "../../store/slices/products.js";
+import ProductRow from "./ProductRow.jsx";
+import Loading from "../Atomic/Loading.jsx";
+import Error from "../Atomic/Loading.jsx";
 
 export default function TableProduct() {
   const { data, error, isLoading } = useGetProductsQuery();
