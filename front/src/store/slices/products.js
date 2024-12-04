@@ -12,9 +12,33 @@ export const productsApi = createApi({
     }),
     getCategories: build.query({
       query: () => ({ url: `/categories` }),
+      providesTags: ['Category']
     }),
     getProductsByCategory: build.query({
       query: (id) => ({ url:`/category/${id}/products`}),
+    }),
+    addCategory: build.mutation({
+      query: (newCategory) => ({
+        url:`/categories`,
+        method:'Post',
+        body: newCategory,
+      }),
+      invalidatesTags: ['Categories']
+    }),
+    updateCategory: build.mutation({
+      query: ({id, ...updatedCategory}) => ({
+        url:`/categories/$${id}`,
+        method:'PATCH',
+        body: updatedCategory,
+      }),
+      invalidatesTags: ['Categories']
+    }),
+    deleteCategory: build.mutation({
+      query: (id) => ({
+        url:`/categories/${id}`,
+        method:'DELETE',
+      }),
+      invalidatesTags: ['Categories']
     }),
   }),
 });
