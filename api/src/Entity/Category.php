@@ -14,13 +14,14 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ApiResource(normalizationContext: ['groups' => ['Category:read']])]
 #[Delete]
 #[GetCollection]
 #[Get]
 #[Patch(denormalizationContext: ['groups' => ['Category:write']])]
-#[Post]class Category
+#[Post] class Category
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -34,7 +35,7 @@ use Symfony\Component\Validator\Constraints as Assert;
         max: 50,
         maxMessage: 'Le nom ne peut pas dépasser 50 caractères.'
     )]
-    #[Groups(['Category:read', 'Category:write','Product-Category:read'])]
+    #[Groups(['Category:read', 'Category:write', 'Product-Category:read'])]
     private ?string $nom = null;
 
     /**
