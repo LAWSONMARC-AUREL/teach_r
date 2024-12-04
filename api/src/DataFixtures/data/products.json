@@ -1,0 +1,63 @@
+[
+  {
+    "nom": "iPhone 14",
+    "description": "Smartphone avec écran Retina, 128 Go de stockage.",
+    "prix": 99.9,
+    "date_creation": "2024-12-01"
+  },
+  {
+    "nom": "MacBook Pro",
+    "description": "Ordinateur portable 16 pouces avec puce M3.",
+    "prix": 2499,
+    "date_creation": "2024-11-20"
+  },
+  {
+    "nom": "T-shirt basique",
+    "description": "T-shirt 100% coton, disponible en plusieurs tailles.",
+    "prix": 15,
+    "date_creation": "2024-11-15"
+  },
+  {
+    "nom": "Nike Air Max",
+    "description": "Chaussures de sport confortables pour un usage quotidien.",
+    "prix": 120,
+    "date_creation": "2024-10-30"
+  },
+  {
+    "nom": "Tablette de chocolat 70%",
+    "description": "Chocolat noir artisanal fabriqué avec des fèves bio.",
+    "prix": 3.50,
+    "date_creation": "2024-12-01"
+  },
+  {
+    "nom": "Café Arabica premium",
+    "description": "Mélange de grains torréfiés pour une saveur riche.",
+    "prix": 7,
+    "date_creation": "2024-12-01"
+  },
+  {
+    "nom": "Lampe LED minimaliste",
+    "description": "Lampe de chevet avec intensité réglable.",
+    "prix": 40,
+    "date_creation": "2024-11-10"
+  },
+  {
+    "nom": "Tapis berbère",
+    "description": "Tapis fait main en laine naturelle.",
+    "prix": 200,
+    "date_creation": "2024-10-25"
+  },
+  {
+    "nom": "Adidas Pro Ball",
+    "description": "Ballon officiel de la Coupe du Monde.",
+    "prix": 50,
+    "date_creation": "2024-11-05"
+  },
+  {
+    "nom": "Set d’haltères ajustables",
+    "description": "Ensemble d’haltères allant de 2 à 20 kg.",
+    "prix": 150,
+    "date_creation": "2024-10-15"
+  }
+]
+
