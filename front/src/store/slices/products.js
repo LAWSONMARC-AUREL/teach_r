@@ -20,8 +20,11 @@ export const productsApi = createApi({
     addCategory: build.mutation({
       query: (newCategory) => ({
         url:`/categories`,
-        method:'Post',
-        body: newCategory,
+        method:'POST',
+        header:{
+          'Content-Type': 'application/ld+json',
+        },
+        body: JSON.stringify(newCategory),
       }),
       invalidatesTags: ['Categories']
     }),
