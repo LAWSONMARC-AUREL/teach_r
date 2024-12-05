@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {useDeleteCategoryMutation, useUpdateCategoryMutation} from "../../store/slices/products.js";
 
@@ -12,9 +12,12 @@ export default function CategoryItem({category}){
         setEditMode(true);
     }
 
+    // useEffect(() => {
+    //     console.log(updatedCategory);
+    // }, [updatedCategory]);
     const handleUpdateCategory = async () => {
         try {
-            await updateCategory({ id: category.id, nom: updatedCategory }).unwrap();
+            await updateCategory({ id: category.id, nom: updatedCategory.nom }).unwrap();
             setEditMode(false);
         } catch (error) {
             console.error("Failed to update category: ", error);
@@ -22,7 +25,8 @@ export default function CategoryItem({category}){
     };
 
     const handleInputChange = (e) => {
-        setUpdatedCategory(e.target.value);
+        setUpdatedCategory({...updatedCategory,nom:e.target.value});
+        // console.log(e.target.value);
     };
 
     const categoryName = (

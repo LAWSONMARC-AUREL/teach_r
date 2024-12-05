@@ -29,7 +29,7 @@ export const productsApi = createApi({
       query: ({id, ...updatedCategory}) => ({
         url:`/categories/${id}`,
         method:'PATCH',
-        body: updatedCategory,
+        body: JSON.stringify(updatedCategory),
         headers: {
           'Content-Type': 'application/merge-patch+json',
         },
