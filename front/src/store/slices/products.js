@@ -12,7 +12,7 @@ export const productsApi = createApi({
     }),
     getCategories: build.query({
       query: () => ({ url: `/categories` }),
-      providesTags: ['Category']
+      providesTags: ['Categories']
     }),
     getProductsByCategory: build.query({
       query: (id) => ({ url:`/category/${id}/products`}),
@@ -27,9 +27,12 @@ export const productsApi = createApi({
     }),
     updateCategory: build.mutation({
       query: ({id, ...updatedCategory}) => ({
-        url:`/categories/$${id}`,
+        url:`/categories/${id}`,
         method:'PATCH',
         body: updatedCategory,
+        headers: {
+          'Content-Type': 'application/merge-patch+json',
+        },
       }),
       invalidatesTags: ['Categories']
     }),
@@ -43,4 +46,12 @@ export const productsApi = createApi({
   }),
 });
 export const productReducer = productsApi.reducer;
-export const { useGetProductsQuery,useGetProductQuery,useGetCategoriesQuery,getProductsByCategoryQuery } = productsApi;
+export const {
+  useGetProductsQuery,
+  useGetProductQuery,
+  useGetCategoriesQuery,
+  getProductsByCategoryQuery,
+  useAddCategoryMutation,
+  useUpdateCategoryMutation,
+  useDeleteCategoryMutation
+} = productsApi;

@@ -12,6 +12,7 @@ export default function Navbar(){
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
+                    <li><Link to={"categories"}>Categories </Link></li>
                     {isLoading ? (
                         <li>
                             <Loading/>
@@ -25,7 +26,7 @@ export default function Navbar(){
                             <li><Link to='categories'></Link></li>
                             <li>
                                 <details>
-                                    <summary>Categories</summary>
+                                    <summary>Produit</summary>
                                     <ul className="bg-base-100 rounded-t-none p-2">
                                         {data.member.map((category) => (
                                             <li key={category.id}>
