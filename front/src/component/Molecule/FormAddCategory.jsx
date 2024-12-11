@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { useAddCategoryMutation } from "../../store/slices/products";
+import Error from "../Atomic/Error.jsx";
 
 export default function FormAddCategory() {
-    const [addCategory, { isLoading, isSuccess, isError, error }] =
+    const [addCategory, {isLoading, isSuccess, isError, error }] =
         useAddCategoryMutation();
 
     const [formData, setFormData] = useState({ nom: "" });
@@ -12,16 +13,17 @@ export default function FormAddCategory() {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await addCategory(formData).unwrap(); // Appelle la mutation
-            alert("Catégorie ajoutée avec succès !");
-            setFormData({ nom: "" }); // Réinitialiser le formulaire
-        } catch (err) {
-            console.error("Erreur :", err);
+            await addCategory(formData).unwrap();
+            setFormData({ nom: "" });
+        } catch (error) {
+            //console.log("Erreur :", error);
         }
     };
+
 
     return (
         <div className="max-w-md mx-auto mt-10">
@@ -54,7 +56,7 @@ export default function FormAddCategory() {
                 </button>
             </form>
             {isSuccess && <p className="text-green-500 mt-2">Catégorie ajoutée avec succès !</p>}
-            {isError && <p className="text-red-500 mt-2">Erreur :</p>}
+            {isError && <Error error={error.data.detail}/>}
         </div>
 
     );

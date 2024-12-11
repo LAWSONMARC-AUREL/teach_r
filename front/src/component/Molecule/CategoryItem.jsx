@@ -44,12 +44,12 @@ export default function CategoryItem({category}){
             </>
 
         :
-         <Link to={`category/${category.id}/product`}>{category.nom}</Link>
+         <Link className="truncate w-[200px] block"   to={`category/${category.id}/product`}>{category.nom}</Link>
     );
 
     return(
         <div className="join">
-            <div>
+            <div className="truncate w-[200px]" >
                 {categoryName}
             </div>
             {editMode ? (

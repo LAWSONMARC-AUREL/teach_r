@@ -21,10 +21,10 @@ export const productsApi = createApi({
       query: (newCategory) => ({
         url:`/categories`,
         method:'POST',
-        header:{
-          'Content-Type': 'application/ld+json',
+        headers:{
+          'Content-Type':"application/ld+json",
         },
-        body: JSON.stringify(newCategory),
+        body:JSON.stringify(newCategory),
       }),
       invalidatesTags: ['Categories']
     }),
